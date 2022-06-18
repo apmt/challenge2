@@ -1,0 +1,10 @@
+
+cd jobsity_2
+mv <csv_path> jobsity_2/INPUT
+
+sudo docker image build -t anacontainer .
+sudo docker container run -t anacontainer
+
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+docker rmi $(docker images -q)
