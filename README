@@ -2,6 +2,9 @@
 cd jobsity_2
 mv <csv_path> jobsity_2/INPUT
 
+sudo python main.py
+rm -f INPUT/*.csv
+
 sudo docker image build -t anacontainer .
 sudo docker container run -t anacontainer
 
