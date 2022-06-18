@@ -37,15 +37,16 @@ def database_migration_trip_chunks(connection_string):
             cursor.execute("""DROP TABLE IF EXISTS trip_clusters;""")
             cursor.execute("""CREATE TABLE IF NOT EXISTS trip_clusters(
                     cluster_id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    hour INTEGER,
-                    origin_ints INTEGER,
-                    destination_ints INTEGER
+                    hour TEXT,
+                    origin_ints TEXT,
+                    destination_ints TEXT
                 );""")
 
 def process_input_into_csv_chunks():
     all_csv_input_files = glob.glob('INPUT/*.csv')
     for csv_file in all_csv_input_files:
         df = pd.read_csv(csv_file)
+
         # Process columns
         df['region'] = df['region'].str.lower()
         df['origin_coord'] = df['origin_coord'].apply(lambda x: x.replace('POINT (', '').replace(')', '') if x and type(x) != float else x)
@@ -53,13 +54,7 @@ def process_input_into_csv_chunks():
         df['destination_coord'] = df['destination_coord'].apply(lambda x: x.replace('POINT (', '').replace(')', '') if x and type(x) != float else x)
         df[['destination_latitude', 'destination_longitude']] = df['destination_coord'].str.split(' ', 1, expand=True).astype(float)
         df['data_source'] = df['datasource']
-        # df['cluster_id'] = None
-        # df['trip_id'] = df.apply(lambda _: uuid.uuid4(), axis=1)
-        # df['trip_id'] = None
         df = df.drop(['origin_coord', 'destination_coord', 'datasource'], axis=1)
-
-        # Reorder columns
-        # df = df[df.columns.tolist()[-1:] + df.columns.tolist()[:-1]]
 
         # Save temp csv files in chunks
         for i in range(0, len(df), TEMP_CSV_CHUNK_SIZE):
