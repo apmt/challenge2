@@ -15,7 +15,37 @@ Copy the input csv file into **jobsity_2/INPUT**:
 ```
 mv <csv_path> jobsity_2/INPUT
 ```
+# How to run with docker
+### Copy the input csv file into **jobsity_2/INPUT** and go to **jobsity_2** directory
+Start docker (on ubuntu):
+```
+sudo dockerd
+```
+Build and run image iteratively:
+```
+docker image build -t ana .
+docker container run -it ana
+```
 
+Run the script on docker image **cli**:
+```
+sudo python main.py
+rm -f INPUT/*.csv
+```
+```
+Check database on docker image **cli**:
+sqlite3 anapaula.db
+> select * from trips;
+> select * from trip_clusters;
+```
+
+
+**WARNING:** Kill all process/containers and delete all images
+```
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+docker rmi $(docker images -q)
+```
 # How to run without docker on linux/ubuntu/WSL
 
 Go to the **jobsity_2** directory and copy the input csv file into **jobsity_2/INPUT**
@@ -36,33 +66,4 @@ Check the database
 sqlite3 anapaula.db
 > select * from trips;
 > select * from trip_clusters;
-```
-
-# How to run with docker
-### Copy the input csv file into **jobsity_2/INPUT** and go to **jobsity_2** directory
-Start docker (on ubuntu):
-```
-sudo dockerd
-```
-Build and run image iteratively:
-```
-docker image build -t ana .
-docker container run -it ana
-```
-
-Run the script on image cli:
-```
-sudo python main.py
-rm -f INPUT/*.csv
-sqlite3 anapaula.db
-> select * from trips;
-> select * from trip_clusters;
-```
-
-
-**WARNING:** Kill all process/containers and delete all images
-```
-docker stop $(docker ps -a -q)
-docker rm $(docker ps -a -q)
-docker rmi $(docker images -q)
 ```
