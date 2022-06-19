@@ -28,7 +28,12 @@ sqlite3 anapaula.db
 > select * from trips;
 > select * from trip_clusters;
 ```
-
+Insights
+```
+python insights.py -r "<region_name>"
+python insights.py -bb "<lat_min>,<long_min>;<lat_max>,<long_max>
+python insights.py -bb "-90,-180;90,180"
+```
 
 **WARNING:** Kill all process/containers and delete all images
 ```
