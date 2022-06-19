@@ -1,9 +1,11 @@
-
-# How to run with docker
-Copy the **input csv file** into **jobsity_2/INPUT** and go to **jobsity_2** directory:
 ```
-cd jobsity_2
-mv <csv_path> jobsity_2/INPUT
+git clone https://github.com/apmt/challenge2
+```
+# How to run with docker
+Copy the **input csv file** into **challenge2/INPUT** and go to **challenge2** directory:
+```
+cd challenge2
+mv <csv_path> challenge2/INPUT
 ```
 Start docker (on ubuntu):
 ```
@@ -52,13 +54,13 @@ sudo apt install sqlite3
 
 ## Run on linux/ubuntu/WSL
 
-Go to the **jobsity_2** directory and copy the input csv file into **jobsity_2/INPUT**
+Go to the **challenge2** directory and copy the input csv file into **challenge2/INPUT**
 ```
-cd jobsity_2
+cd challenge2
 python -m venv env
 source env/bin/activate
 pip install -r requirements.txt
-mv <csv_path> jobsity_2/INPUT
+mv <csv_path> challenge2/INPUT
 ```
 Run main.py and delete the input files
 ```
