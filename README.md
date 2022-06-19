@@ -1,16 +1,4 @@
-# Requirements
 
-### How to install requirements on linux/ubuntu/WSL
-
-python:3.8
-```
-sudo apt install python3
-sudo apt install python-is-python3
-```
-sqlite3
-```
-sudo apt install sqlite3
-```
 # How to run with docker
 Copy the input csv file into **jobsity_2/INPUT** and go to **jobsity_2** directory:
 ```
@@ -46,7 +34,23 @@ docker stop $(docker ps -a -q)
 docker rm $(docker ps -a -q)
 docker rmi $(docker images -q)
 ```
-# How to run without docker on linux/ubuntu/WSL
+# How to setup and run without docker on linux/ubuntu/WSL
+
+## Requirements
+
+#### How to install requirements on linux/ubuntu/WSL
+
+python:3.8
+```
+sudo apt install python3
+sudo apt install python-is-python3
+```
+sqlite3
+```
+sudo apt install sqlite3
+```
+
+## Run on linux/ubuntu/WSL
 
 Go to the **jobsity_2** directory and copy the input csv file into **jobsity_2/INPUT**
 ```
