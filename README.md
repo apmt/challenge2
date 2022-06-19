@@ -1,6 +1,6 @@
 
 # How to run with docker
-Copy the input csv file into **jobsity_2/INPUT** and go to **jobsity_2** directory:
+Copy the **input csv file** into **jobsity_2/INPUT** and go to **jobsity_2** directory:
 ```
 cd jobsity_2
 mv <csv_path> jobsity_2/INPUT
