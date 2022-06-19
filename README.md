@@ -11,10 +11,14 @@ sqlite3
 ```
 sudo apt install sqlite3
 ```
+Input file:
+```
+mv <csv_path> jobsity_2/INPUT
+```
 
 # How to run without docker on linux/ubuntu/WSL
 
-Go to the jobsity_2 directory and copy the input csv file into jobsity_2/INPUT
+Go to the **jobsity_2** directory and copy the input csv file into **jobsity_2/INPUT**
 ```
 cd jobsity_2
 python -m venv env
@@ -35,6 +39,7 @@ sqlite3 anapaula.db
 ```
 
 # How to run with docker
+### Copy the input csv file into **jobsity_2/INPUT** and go to **jobsity_2** directory
 Start docker (on ubuntu):
 ```
 sudo dockerd
