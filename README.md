@@ -20,8 +20,8 @@ Run the script on docker image **cli**:
 sudo python main.py
 rm -f INPUT/*.csv
 ```
-```
 Check database on docker image **cli**:
+```
 sqlite3 anapaula.db
 > select * from trips;
 > select * from trip_clusters;
