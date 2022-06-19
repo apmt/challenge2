@@ -63,7 +63,7 @@ def process_input_into_csv_chunks():
 
     # Save temp csv files in chunks
     for i in range(0, len(df), TEMP_CSV_CHUNK_SIZE):
-        df[i : i + TEMP_CSV_CHUNK_SIZE].to_csv('TEMP/' + str(i) + '.csv', index=False, header=False, chunksize=10_000)
+        df[i : i + TEMP_CSV_CHUNK_SIZE].to_csv('TEMP/' + str(i) + '.csv', index=False, header=False)
 
 def insert_data_from_temp_csvs_into_db(connection_string):
     with sqlite3.connect(connection_string) as conn:
