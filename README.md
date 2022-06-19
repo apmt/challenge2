@@ -11,7 +11,7 @@ sqlite3
 ```
 sudo apt install sqlite3
 ```
-Input file:
+Copy the input csv file into **jobsity_2/INPUT** and go to **jobsity_2** directory:
 ```
 mv <csv_path> jobsity_2/INPUT
 ```
