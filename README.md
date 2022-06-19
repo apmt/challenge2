@@ -35,11 +35,26 @@ sqlite3 anapaula.db
 ```
 
 # How to run with docker
-Build and run
+Start docker (on ubuntu):
 ```
-sudo docker image build -t anacontainer .
-sudo docker container run -t anacontainer
+sudo dockerd
 ```
+Build and run image iteratively:
+```
+docker image build -t ana .
+docker container run -it ana
+```
+
+Run the script on image cli:
+```
+sudo python main.py
+rm -f INPUT/*.csv
+sqlite3 anapaula.db
+> select * from trips;
+> select * from trip_clusters;
+```
+
+
 **WARNING:** Kill all process/containers and delete all images
 ```
 docker stop $(docker ps -a -q)
