@@ -110,8 +110,13 @@ def clusterize_trips(connection_string):
                             where cluster_id IS NULL;""")
 
 if __name__ == "__main__":
+    print('PROCESSING_INPUT_CSVS')
     process_input_into_csv_chunks()
+    print('CREATING TABLES IF NECESSARY')
     database_migration_trips(CONNECTION_STRING)
     database_migration_trip_chunks(CONNECTION_STRING)
+    print('INSERTING DATA INTO DATABASE')
     insert_data_from_temp_csvs_into_db(CONNECTION_STRING)
     clusterize_trips(CONNECTION_STRING)
+    print('\nFINISHED WITH SUCCESS')
+
